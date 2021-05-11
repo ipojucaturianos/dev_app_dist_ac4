@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Aluno</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        {{ fontawesome_html() }}
+    </head>
+    <body>
+        <div class="container">
+            <img style="width: 40%; margin-left: 30%; margin-top: 20px;" src="{{ url_for('static', filename='image/logo.png') }}" alt="logo">
+            <h4 style="text-align: center; margin-top:30px;">
+                Cadastro e Registro de Alunos - IPOJUCATURIANOS
+            </h4>
+            <h5 style="margin-top: 80px; padding-left: 10%;">Abaixo a lista de todos os alunos cadastrados no sistema:</h5>
+            <table style="width: 80%; text-align: center; margin-left: auto;
+                          margin-right: auto; margin-top: 20px" class="table table-light">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Logradouro</th>
+                        <th>Número</th>
+                        <th>CEP</th>
+                        <th>Complemento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aluno in alunos %}
+                    <tr>
+                        <td>{{aluno.nome}}</td>
+                        <td>{{aluno.email}}</td>
+                        <td>{{aluno.logradouro}}</td>
+                        <td>{{aluno.numero}}</td>
+                        <td>{{aluno.cep}}</td>
+                        <td>
+                            {% if aluno.complemento %}
+                                {{aluno.complemento}}
+                            {% else %}
+                                <p>Sem Complemento</p>
+                            {% endif %}
+                        </td>
+                        <td><a href="/edit/{{aluno.ra}}"><i class="fas fa-user-edit"></i></a></td>
+                        <td><a href="/delete/{{aluno.ra}}"> <i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p style="padding-left: 10%;">Para adicionar um novo aluno clique <a href="/add">aqui <i class="fas fa-user-plus"></i></a> ou se deseja voltar para a <a href="/">tela inicial <i class="fas fa-home"></i></a></p>
+            <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+        </div>
+    </body>
+</html>

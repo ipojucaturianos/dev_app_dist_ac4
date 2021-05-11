@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Aluno</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        {{ fontawesome_html() }}
+    </head>
+    <body>
+        <div class="container">
+            <img style="width: 40%; margin-left: 30%; margin-top: 20px;" src="{{ url_for('static', filename='image/logo.png') }}" alt="logo">
+            <h4 style="text-align: center; margin-top:30px;">
+                Cadastro e Registro de Alunos - IPOJUCATURIANOS
+            </h4>
+            <h6 style="margin-top: 100px; text-align: center;">
+                Bem vindo ao sistema de registro e cadastro de alunos, escolha umas das ações abaixo:
+            </h6>
+            <div>
+                <table style="width: 55%; text-align: center; margin-left: auto;
+                          margin-right: auto; margin-top: 20px" class="table table-light">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Botão de Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Listar todos os alunos cadastrados no sistema</td>
+                        <td><a href="/list"><i class="fas fa-list-ul"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>Adicionar um novo aluno ao sistema</td>
+                        <td><a href="/add"><i class="fas fa-user-plus"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Aluno</title>
+        <link type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <img style="width: 40%; margin-left: 30%; margin-top: 20px;" src="{{ url_for('static', filename='image/logo.png') }}" alt="logo">
+            <h4 style="text-align: center; margin-top:30px;">
+                Cadastro e Registro de Alunos - IPOJUCATURIANOS
+            </h4>
+            <h4 style="margin-top: 60px; margin-bottom: 30px;">Editar Aluno {{ aluno.nome }}</h4>
+            <form action="/edit/{{aluno.ra}}" method="POST">
+                <div class="form-group">
+                    <label for="nome">Digite seu nome: </label>
+                    <input value="{{aluno.nome}}" type="text" class="form-control" id="nome" placeholder="Nome completo" name="nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Digite seu e-mail: </label>
+                    <input value="{{aluno.email}}" type="text" class="form-control" id="email" placeholder="E-mail" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="cep">Digite seu CEP: </label>
+                    <input value="{{aluno.cep}}" type="text" class="form-control" id="cep" placeholder="Digite seu CEP" name="cep">
+                </div>
+                <div class="form-group">
+                    <label for="numero">Digite o número de sua residência: </label>
+                    <input value="{{aluno.numero}}" type="text" class="form-control" id="numero" placeholder="Número da residência" name="numero">
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Digite o complemento: </label>
+                    <input value="{{aluno.complemento}}" type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento">
+                </div>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <a href="/"><button type="button" class="btn btn-secondary">Tela inicial</button></a>
+            </form>
+            <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+        </div>
+    </body>
+</html>
